@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两子frame间通讯—子页面1</title>
+</head>
+<body>
+    <button onclick="clickFunction();">点我吧</button>
+
+    <script>
+        function clickFunction() {
+            window.parent.frames[1].postMessage("page1发送的消息",'*');
+        }
+    </script>
+</body>
+</html>

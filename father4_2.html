@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BroadcastChannel通讯—父页面</title>
+    <style>
+        ul{
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        li{
+            background-color: #fffebb;
+            border: 1px solid #c5c5c5;
+            float: left;
+            margin: 0;
+            padding: 3px 10px;
+            width: 100px;
+        }
+        .contentShow{
+            border: 1px solid #c5c5c5;
+            display: none;
+            float: left;
+            height: 300px;
+            width: 100%;
+        }
+        .contentShow iframe{
+            border: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .clickPart{
+            background-color: #FFC6B6;
+        }
+        .showPart{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="ClickFunction()">接收</button>
+
+    <script>
+        function ClickFunction() {
+            alert(localStorage.getItem("data"));
+        }
+    </script>
+</body>
+</html>

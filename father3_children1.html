@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BroadcastChannel通讯—子页面1</title>
+</head>
+<body>
+    <button onclick="clickFunction()">发送通信</button>
+
+    <script>
+        function clickFunction() {
+            let cast = new BroadcastChannel('mychannel');
+            myObj = { from: "children1", content: "add" };
+            cast.postMessage(myObj);
+
+            // cast.onmessage = function (e) {
+            //     console.log(e); // This should print out the contents of the object we sent above
+            // };
+
+            // cast.close();
+        }
+    </script>
+</body>
+</html>

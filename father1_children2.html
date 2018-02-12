@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两子frame间通讯—子页面2</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('message',function(e){
+            if(e.source != window.parent.frames[0]) return;
+            var content = e.data;
+            document.write(content);
+        },false);
+    </script>
+</body>
+</html>

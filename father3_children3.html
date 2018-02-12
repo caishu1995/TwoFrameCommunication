@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BroadcastChannel通讯—子页面3</title>
+</head>
+<body>
+    <script>
+        let cast = new BroadcastChannel('mychannel');
+
+        cast.onmessage = function (e) {
+            document.write(JSON.stringify(e.data)); // This should print out the contents of the object we sent above
+        };
+    </script>
+</body>
+</html>

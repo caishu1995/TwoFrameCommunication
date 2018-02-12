@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BroadcastChannel通讯—父页面</title>
+    <style>
+        ul{
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        li{
+            background-color: #fffebb;
+            border: 1px solid #c5c5c5;
+            float: left;
+            margin: 0;
+            padding: 3px 10px;
+            width: 100px;
+        }
+        .contentShow{
+            border: 1px solid #c5c5c5;
+            display: none;
+            float: left;
+            height: 300px;
+            width: 100%;
+        }
+            .contentShow iframe{
+                border: 0;
+                height: 100%;
+                width: 100%;
+            }
+        .clickPart{
+            background-color: #FFC6B6;
+        }
+        .showPart{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="clickPart" data-id="page1" onclick="liClickFunction(this)">页面1</li>
+        <li data-id="page2" onclick="liClickFunction(this)">页面2</li>
+        <li data-id="page3" onclick="liClickFunction(this)">页面3</li>
+    </ul>
+    <div id="page1" class="contentShow showPart">
+        <iframe id="cc" src="father3_children1.html"></iframe>
+    </div>
+    <div id="page2" class="contentShow">
+        <iframe src="father3_children2.html"></iframe>
+    </div>
+    <div id="page3" class="contentShow">
+        <iframe src="father3_children3.html"></iframe>
+    </div>
+
+    <script>
+        function liClickFunction(thisEle) {
+            //突出当前内容
+            var list = document.getElementsByClassName("clickPart");
+            while(list.length)
+                list[0].classList.remove("clickPart");
+            thisEle.classList.add("clickPart");
+
+            //展示下面内容
+            var list = document.getElementsByClassName("showPart");
+            while(list.length)
+                list[0].classList.remove("showPart");
+            document.getElementById(thisEle.dataset.id).classList.add("showPart");
+        }
+    </script>
+</body>
+</html>
